@@ -35,13 +35,13 @@ def speak_text(text):
 def main():
     while True:
         # wait for uset to say "John Tik"
-        print("Hello 'John Tik' to start record your question...")
+        print("Hello 'Genius' to start record your question...")
         with sr.Microphone() as source:
             recognizer = sr.Recognizer()
             audio = recognizer.listen(source)
             try:
                 transcription = recognizer.recognize_google(audio)
-                if transcription.lower() == "john tik":
+                if transcription.lower() == "genius":
                     # Record audio
                     filename = "input.wav"
                     print("Say your question...")
@@ -65,3 +65,6 @@ def main():
                             speak_text(response)
             except Exception as e:
                 print("An error occured: {}".format(e))
+                
+if __name__ == "__main__":
+    main()
