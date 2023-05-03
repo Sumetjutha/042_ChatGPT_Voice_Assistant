@@ -27,6 +27,7 @@ def generate_response(prompt):
         stop = None,
         tempareture = 0.5
     )
+    return response["choices"][0]["text"]
     
 def speak_text(text):
     engine.say(text)
@@ -48,7 +49,7 @@ def main():
                     with sr.Microphone() as source:
                         recognizer = sr.Recognizer()
                         source.pause_threshold = 1
-                        audio = recognizer.listen(source, phrase_time_limit=None, timout=None)
+                        audio = recognizer.listen(source, phrase_time_limit=None, timeout=None)
                         with open(filename, "wb") as f:
                             f.write(audio.get_wav_data())
                             
